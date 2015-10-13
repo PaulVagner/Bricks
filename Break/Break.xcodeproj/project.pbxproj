@@ -15,6 +15,7 @@
 		44533CB41BC6AEC800F1B57E /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44533CB31BC6AEC800F1B57E /* GameViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		44533CB61BC6AEEE00F1B57E /* ScoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44533CB51BC6AEEE00F1B57E /* ScoreViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		44533CB81BC6AF2500F1B57E /* TopBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44533CB71BC6AF2500F1B57E /* TopBarView.swift */; settings = {ASSET_TAGS = (); }; };
+		445436751BC966DC006B7965 /* GameData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 445436741BC966DC006B7965 /* GameData.swift */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		44533CB31BC6AEC800F1B57E /* GameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		44533CB51BC6AEEE00F1B57E /* ScoreViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScoreViewController.swift; sourceTree = "<group>"; };
 		44533CB71BC6AF2500F1B57E /* TopBarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopBarView.swift; sourceTree = "<group>"; };
+		445436741BC966DC006B7965 /* GameData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,6 +67,7 @@
 				44533CB31BC6AEC800F1B57E /* GameViewController.swift */,
 				44533CB71BC6AF2500F1B57E /* TopBarView.swift */,
 				44533CB51BC6AEEE00F1B57E /* ScoreViewController.swift */,
+				445436741BC966DC006B7965 /* GameData.swift */,
 				44533CB01BC6AD5200F1B57E /* System */,
 			);
 			path = Break;
@@ -153,6 +156,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				44533CB81BC6AF2500F1B57E /* TopBarView.swift in Sources */,
+				445436751BC966DC006B7965 /* GameData.swift in Sources */,
 				44533C9F1BC6AD2A00F1B57E /* AppDelegate.swift in Sources */,
 				44533CB41BC6AEC800F1B57E /* GameViewController.swift in Sources */,
 				44533CB21BC6AEBB00F1B57E /* StartViewController.swift in Sources */,
@@ -304,6 +308,7 @@
 				44533CAF1BC6AD2A00F1B57E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

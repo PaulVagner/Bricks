@@ -14,7 +14,7 @@ class TopBarView: UIView {
         
         didSet {
            
-            //remove current circles
+            //remove current circles depending on life count
             for circle in lifeView.subviews {
                 
                 circle.removeFromSuperview()
@@ -55,7 +55,7 @@ class TopBarView: UIView {
     override func didMoveToSuperview() {
         
         score = 0
-        lives = 15
+        lives = 5
         
         titleLabel.text = "BREAK"
         titleLabel.textColor = UIColor.greenColor()

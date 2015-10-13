@@ -10,6 +10,12 @@ import UIKit
 
 class StartViewController: UIViewController {
 
+    
+    @IBOutlet weak var topScoreLabel: UILabel!
+
+    
+    
+    //sends user to GameViewController when "Play" is pressed
     @IBAction func Play(sender: AnyObject) {
     
         let gameVC = GameViewController()
@@ -19,6 +25,11 @@ class StartViewController: UIViewController {
         
         
     }
+    override func viewDidLoad() {
+       
+        let topScore = GameData.mainData().topScore
+        topScoreLabel.text = "High Score \(topScore)"
     
-
+    }
+    
 }
