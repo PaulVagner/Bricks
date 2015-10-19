@@ -29,7 +29,7 @@ class StartViewController: UIViewController {
        
         let topScore = GameData.mainData().topScore
         topScoreLabel.text = "High Score \(topScore)"
-    
+        
     }
     
 }

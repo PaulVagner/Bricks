@@ -47,6 +47,8 @@ class GameViewController: UIViewController, UIDynamicAnimatorDelegate, UICollisi
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        GameData.mainData().currentScore = 0
+        
                // MARK: Background
         
         let background = UIImageView(image: UIImage(named: "background"))
@@ -100,6 +102,7 @@ class GameViewController: UIViewController, UIDynamicAnimatorDelegate, UICollisi
         if brickBehavior.items.count == 0 {
             
             //you win
+            GameData.mainData().currentLevel++
             
             endGame()
             
@@ -132,6 +135,7 @@ class GameViewController: UIViewController, UIDynamicAnimatorDelegate, UICollisi
                 
                 if topBar.lives == 0 {
                     
+                    GameData.mainData().currentLevel = 0
                     endGame()
                     
                     
@@ -175,9 +179,13 @@ class GameViewController: UIViewController, UIDynamicAnimatorDelegate, UICollisi
     // MARK: Brick Setup
     func createBricks() {
         
+        let level = GameData.mainData().currentLevel
+        
+        let (cols,rows) = GameData.mainData().levels[level]
+        
         //Bricks and their dimentions
-        let cols = 8
-        let rows = 3
+//        let cols = 8
+//        let rows = 3
         
         let brickH = 30
         let brickSpacing = 3
