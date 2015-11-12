@@ -89,7 +89,7 @@ class GameViewController: UIViewController, UIDynamicAnimatorDelegate, UICollisi
                 brick.removeFromSuperview()
                 
                 topBar.score += 5
-                GameData.mainData().currentScore += 5
+                GameData.mainData().currentScore += 15
                 
             }
             
@@ -142,7 +142,7 @@ class GameViewController: UIViewController, UIDynamicAnimatorDelegate, UICollisi
                     
                 } else {
                     
-                    print("Burn Baby Burn!!! - DISCO INFERNO!!!")
+//                    print("Burn Baby Burn!!! - DISCO INFERNO!!!")
                     topBar.lives--
                     
                     createBall()
@@ -184,8 +184,6 @@ class GameViewController: UIViewController, UIDynamicAnimatorDelegate, UICollisi
         let (cols,rows) = GameData.mainData().levels[level]
         
         //Bricks and their dimentions
-//        let cols = 8
-//        let rows = 3
         
         let brickH = 30
         let brickSpacing = 3
