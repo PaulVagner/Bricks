@@ -10,8 +10,6 @@ import UIKit
 
 import AVFoundation
 
-
-
 enum BoundaryType: String {
     
     case Floor, LeftWall, RightWall, Ceiling
@@ -22,14 +20,11 @@ class GameViewController: UIViewController, UIDynamicAnimatorDelegate, UICollisi
     
     // sets "animator" to UIDynamicAnimator
     var animator: UIDynamicAnimator!
-    
     //creates behavior variables
     let ballBehavior = UIDynamicItemBehavior()
     let brickBehavior = UIDynamicItemBehavior()
     let paddleBehavior = UIDynamicItemBehavior()
-    
     var attachment: UIAttachmentBehavior?
-    
     //gravity
     let gravity = UIGravityBehavior()
     //collision
@@ -78,9 +73,9 @@ class GameViewController: UIViewController, UIDynamicAnimatorDelegate, UICollisi
         for brick in brickBehavior.items as! [UIView] {
             
             if brick === item1  || brick == item2 as! UIView {
-              
-                playSound("Beep")
                 
+                //plays sound when ball collides with brick
+                playSound("thud")
                 //removes the brick from the array.
                 brickBehavior.removeItem(brick)
                 //removes the collision placeholder where the brick was.
@@ -88,15 +83,13 @@ class GameViewController: UIViewController, UIDynamicAnimatorDelegate, UICollisi
                 //removes the brick location.
                 brick.removeFromSuperview()
                 
-                topBar.score += 5
+                topBar.score += 10
                 GameData.mainData().currentScore += 15
                 
             }
-            
+           
         }
-        playSound("Bloop")
-
-        
+        playSound("boing")
         //check brick count
         
         if brickBehavior.items.count == 0 {
@@ -118,12 +111,11 @@ class GameViewController: UIViewController, UIDynamicAnimatorDelegate, UICollisi
             
             switch boundaryName {
                 
-            case .Ceiling : print("I can fly high")
+            case .Ceiling : print("I can fly!!!")
                 
             case .Floor :
                 
                 if let ball = item as? UIView {
-                    
                     
                     ballBehavior.removeItem(ball)
                     collision.removeItem(ball)
@@ -142,7 +134,7 @@ class GameViewController: UIViewController, UIDynamicAnimatorDelegate, UICollisi
                     
                 } else {
                     
-//                    print("Burn Baby Burn!!! - DISCO INFERNO!!!")
+
                     topBar.lives--
                     
                     createBall()
@@ -150,7 +142,6 @@ class GameViewController: UIViewController, UIDynamicAnimatorDelegate, UICollisi
                 }
                 
             case .LeftWall : print("HIT Left")
-                
             case .RightWall : print("Hit Right")
                 
             }
@@ -185,8 +176,8 @@ class GameViewController: UIViewController, UIDynamicAnimatorDelegate, UICollisi
         
         //Bricks and their dimentions
         
-        let brickH = 30
-        let brickSpacing = 3
+        let brickH = 20
+        let brickSpacing = 2
         
         
         let totalSpacing = (cols + 1) * brickSpacing
@@ -202,8 +193,8 @@ class GameViewController: UIViewController, UIDynamicAnimatorDelegate, UICollisi
                 let y = r * (brickH + brickSpacing) + brickSpacing + 60
                 
                 let brick = UIView(frame: CGRect(x: x, y: y, width: brickW, height: brickH))
-                brick.backgroundColor = UIColor.purpleColor()
-                brick.layer.cornerRadius = 5
+                brick.backgroundColor = UIColor(red:1, green:0.2, blue:0, alpha:0.9)
+                brick.layer.cornerRadius = 1
                 
                 view.addSubview(brick)
                 
@@ -220,34 +211,32 @@ class GameViewController: UIViewController, UIDynamicAnimatorDelegate, UICollisi
         
         let ball = UIView(frame: CGRect(x: 0, y: 0, width: 20, height: 20))
         ball.layer.cornerRadius = 10
-        ball.backgroundColor = UIColor.greenColor()
+        ball.backgroundColor = UIColor(red:0, green:1, blue:0.92, alpha:1)
         view.addSubview(ball)
         
         ball.center.x = paddle.center.x
         ball.center.y = paddle.center.y - 20
         
         ballBehavior.addItem(ball)
-        //        gravity.addItem(ball)
+        //gravity.addItem(ball)
         collision.addItem(ball)
         
         // push
         let push = UIPushBehavior(items: [ball], mode: UIPushBehaviorMode.Instantaneous)
         
-        
         push.pushDirection = CGVector(dx: 0.1, dy: -0.1)
         
         animator.addBehavior(push)
-        
         
         print(animator.behaviors.count)
     }
     
     func createPaddle() {
         
-        paddle.backgroundColor = UIColor.blueColor()
-        paddle.layer.cornerRadius = 5
+        paddle.backgroundColor = UIColor(red:0.37, green:0.91, blue:0.3, alpha:1)
+        paddle.layer.cornerRadius = 3
         
-        paddle.center = CGPoint(x: view.center.x, y: view.frame.height - 40)
+        paddle.center = CGPoint(x: view.center.x, y: view.frame.height - 35)
         
         view.addSubview(paddle)
         
@@ -308,12 +297,9 @@ class GameViewController: UIViewController, UIDynamicAnimatorDelegate, UICollisi
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         //Game Over
         
-        
-        
         let startVC = storyboard.instantiateViewControllerWithIdentifier("StartVC")
         
         navigationController?.viewControllers = [startVC]
-        
         
         
     }

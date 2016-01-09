@@ -31,6 +31,8 @@ class GameData: NSObject {
     // levels = array of tuples where each tuple is made of 2 Int type values
     var levels: [(Int,Int)] = [
     
+        (24,4),
+        (6,3),
         (9,2), // (col,row)
         (11,2),
         (8,3),
